@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router , Route , Link } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import CreateTodo from  './components/create-todos-component';
+import EditTodo from './components/edit-todo-component';
+import TodosList from './components/todos-list-component';
+import DeleteTodo from './components/delete-todo-component';
+
+import logo from './logo.svg';
+
+class App extends Component{
+  render(){
+    return (
+      <Router>
+        <div className="container">
+          <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+            <a href='https://github.com/KishanMaurya' className='navbar-brand' target='_blank'>
+              <img src={logo} width='40' height='40' alt='kishan'></img>
+            </a>
+            <Link to='/' className='navbar-brand'>Mearn Stack Todo App</Link>
+
+            <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#react'>
+            <span class='navbar-toggler-icon'></span>
+            </button>
+            
+            <div class='collapse navbar-collapse' id='react'>
+              <ul className='navbar-nav mr-auto'>
+                <li className='nav-item active'>
+                  <Link to='/' className='nav-link'>TodosList</Link>
+                </li>
+                <li className='nav-item '>
+                  <Link to='/create' className='nav-link'>CreatTodos</Link>
+                </li>
+                <li className='nav-item '>
+                  <Link to='/edit/id' className='nav-link'>EditTodos</Link>
+                </li>
+                <li className='nav-item '>
+                  <Link to='/delete/id' className='nav-link'>DeleteTodos</Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <Route path='/' exact component={TodosList}></Route>
+        <Route path='/edit/:id' component={EditTodo}></Route>
+        <Route path='/create' component={CreateTodo}></Route>
+        <Route path='/delete/:id' component={DeleteTodo}></Route>
+      </Router>
+      
+    );
+  }
 }
 
 export default App;
