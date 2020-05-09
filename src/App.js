@@ -15,16 +15,18 @@ class App extends Component{
       <Router>
         <div className="container">
           <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-            <a href='https://github.com/KishanMaurya' className='navbar-brand' target='_blank'>
+            <a href='https://github.com/KishanMaurya' className='navbar-brand' target='_blank' rel='noopener noreferrer'>
               <img src={logo} width='40' height='40' alt='kishan'></img>
             </a>
-            <Link to='/' className='navbar-brand'>Mearn Stack Todo App</Link>
+            <Link to='/' className='navbar-brand font-weight-bold text-primary'>Mearn-Stack Todo-App</Link>
 
-            <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#react'>
-            <span class='navbar-toggler-icon'></span>
+            <button className='navbar-toggler' 
+              type='button' data-toggle='collapse' 
+              data-target='#react'>
+            <span className='navbar-toggler-icon'></span>
             </button>
             
-            <div class='collapse navbar-collapse' id='react'>
+            <div className='collapse navbar-collapse' id='react'>
               <ul className='navbar-nav mr-auto'>
                 <li className='nav-item active'>
                   <Link to='/' className='nav-link'>TodosList</Link>
